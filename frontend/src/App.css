@@ -5,15 +5,39 @@
   text-align: center;
 }
 
+body {
+  min-height: 100vh;
+  align-items: stretch;
+}
+
 .app-container {
   display: flex;
+  height: 80%;
+  width: 80%;
 }
 
 .profile-container {
+  margin: 2em;
   width: 30%;
   height: 100%;
   border: 2px solid grey;
   border-radius: 5px;
+}
+.active-game-container {
+  margin: 2em;
+  max-width: 60%;
+  height: 100%;
+}
+
+.close-game-button {
+  color: #a52020;
+}
+
+.game-list-element {
+  list-style-type: none;
+  padding: 0.5em;
+  border: 1px solid grey;
+  border-radius: 20px;
 }
 
 .logo {

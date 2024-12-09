@@ -1,17 +1,14 @@
-import { act, Component, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import SpellingMoth from "./components/spelling-moth/spelling-moth";
 import Profile from "./components/Profile";
-import React from "react";
 
 enum Games {
   SpellingMoth = "SPELLING_MOTH",
 }
 
 function App() {
-  const [count, setCount] = useState(0);
   const [activeGame, setActiveGame] = useState<null | Games>(null);
-  const [spellingMothOn, setSpellingMothOn] = useState(false);
 
   // TODO - initiate animation, we want a smooth transtion to playing the active game
   function launchGame(gameTitle: Games) {
@@ -22,7 +19,7 @@ function App() {
     return (
       <>
         <ol>
-          <li>
+          <li className="game-list-element">
             <p>Spelling Moth; try to find words using the middle letter</p>
             <button onClick={() => launchGame(Games.SpellingMoth)}>
               Open Spelling Moth

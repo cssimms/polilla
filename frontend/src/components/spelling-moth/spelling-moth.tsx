@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import Game from './Game'
+import { useState } from "react";
+import "./App.css";
+import Game from "./Game";
 
 /**
- * MVP
+ * MVP done
  * - get set of 7 random letters, with one being the center
  * - guesses should be validated for:
  *   - length
@@ -16,24 +16,25 @@ import Game from './Game'
  * - style to look roughly like the app
  */
 export default function SpellingMoth() {
-    const [isStarted, setIsStarted] = useState(false)
+  const [isStarted, setIsStarted] = useState(false);
 
-    return (
-        <>
-            <h1>Spelling Moth</h1>
-            <div className="card">
-                <button id="start-button" onClick={() => setIsStarted((isStarted) => !isStarted)}>
-                    {isStarted ? 'Stop Game' : 'Start Game'}
-                </button>
-                <div className='card'>
-                    {isStarted ? <Game /> :
-                        <p>Click 'Start Game' to begin</p>
-                    }
-                </div>
-            </div >
-            <p className="read-the-docs">
-                Placeholder explainer text, I like this CSS class
-            </p>
-        </>
-    )
+  return (
+    <>
+      <h1>Spelling Moth</h1>
+      <div className="card">
+        <button
+          id="start-button"
+          onClick={() => setIsStarted((isStarted) => !isStarted)}
+        >
+          {isStarted ? "Stop Game" : "Start Game"}
+        </button>
+        <div className="card">
+          {isStarted ? <Game /> : <p>Click 'Start Game' to begin</p>}
+        </div>
+      </div>
+      <p className="read-the-docs">
+        Placeholder explainer text, I like this CSS class
+      </p>
+    </>
+  );
 }
