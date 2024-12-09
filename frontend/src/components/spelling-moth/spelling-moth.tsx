@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Game from "./Game";
+import Game from "./Game.tsx";
 
 /**
  * MVP done
