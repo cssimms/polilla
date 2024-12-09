@@ -5,6 +5,17 @@
   text-align: center;
 }
 
+.app-container {
+  display: flex;
+}
+
+.profile-container {
+  width: 30%;
+  height: 100%;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
