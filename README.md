@@ -1,4 +1,25 @@
-# React + TypeScript + Vite
+# Polilla
+
+Another phase of a long term idea, cs-arcade. Would like to build a little web app for playing around online.
+Currently setup just as a SPA with React, other details to follow.
+
+### MVP Requirements
+
+- [ ] Home page with list of games
+- [ ] List contains launch buttons, ideally with a smooth transition to playing the game
+- [ ] Side panel with my information
+- [ ] Unit tests for React components and backend
+- [ ] Express API with Mongo DB for storing high scores
+
+## Games Overview
+
+## Spelling Moth
+
+## Asteroids
+
+# Used Vite to generate base project - generated README below
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -18,11 +39,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -31,11 +52,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -44,7 +65,7 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```

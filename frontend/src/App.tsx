@@ -1,42 +1,67 @@
 import { useState } from "react";
 import "./App.css";
-import SpellingMoth from "./components/spelling-moth/spelling-moth";
+import SpellingMoth from "./components/spelling-moth/SpellingMoth";
+import Asteroids from "./components/asteroids/Asteroids";
 import Profile from "./components/Profile";
 
-enum Games {
+enum GameNames {
   SpellingMoth = "SPELLING_MOTH",
+  Asteroids = "ASTEROIDS",
 }
 
+interface GameData {
+  name: GameNames;
+  Component: () => JSX.Element;
+  title: string;
+  description: string;
+}
+
+const GAME_MAP: Map<GameNames, GameData> = new Map();
+GAME_MAP.set(GameNames.SpellingMoth, {
+  name: GameNames.SpellingMoth,
+  Component: SpellingMoth,
+  title: "Spelling Moth",
+  description:
+    "My version of the popular NY Times word game, Spelling Bee. Built to be simple and cute, currently has a small usable dictionary.",
+});
+
+GAME_MAP.set(GameNames.Asteroids, {
+  name: GameNames.Asteroids,
+  Component: Asteroids,
+  title: "Asteroids",
+  description:
+    "Implementation of Asteroids built using jQuery and Canvas, this is a version of one of my first projects in Javascript. I was quite charmed by the simple physics implemented with simple math - I hope you are too!",
+});
+
 function App() {
-  const [activeGame, setActiveGame] = useState<null | Games>(null);
+  const [activeGame, setActiveGame] = useState<null | GameNames>(null);
 
   // TODO - initiate animation, we want a smooth transtion to playing the active game
-  function launchGame(gameTitle: Games) {
+  function launchGame(gameTitle: GameNames) {
     setActiveGame(gameTitle);
   }
 
   function getGameList() {
+    const gameList = Array.from(GAME_MAP.values()).map((gameData) => {
+      const { name, title, description } = gameData;
+      return (
+        <li className="game-list-element">
+          <p>{description}</p>
+          <button onClick={() => launchGame(name)}>Open {title}</button>
+        </li>
+      );
+    });
+
     return (
       <>
-        <ol>
-          <li className="game-list-element">
-            <p>Spelling Moth; try to find words using the middle letter</p>
-            <button onClick={() => launchGame(Games.SpellingMoth)}>
-              Open Spelling Moth
-            </button>
-          </li>
-        </ol>
+        <ol>{gameList}</ol>
       </>
     );
   }
 
-  const gameComponentMap: Map<Games, () => JSX.Element> = new Map();
-  gameComponentMap.set(Games.SpellingMoth, SpellingMoth);
-
   function getPageContent() {
     if (activeGame) {
-      const GameComponent = gameComponentMap.get(activeGame);
-      // const ComponentToRender =
+      const { Component, title } = GAME_MAP.get(activeGame) ?? {};
 
       return (
         <div className="active-game-container">
@@ -46,10 +71,10 @@ function App() {
           >
             ~ Close Game ~
           </button>
-          {GameComponent === undefined ? (
-            <div>coult not find game</div>
+          {Component === undefined ? (
+            <div>Could not find game: {title}</div>
           ) : (
-            <GameComponent />
+            <Component />
           )}
         </div>
       );
