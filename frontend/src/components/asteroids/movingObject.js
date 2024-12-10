@@ -1,5 +1,3 @@
-var Util = require("./util.js");
-
 var MovingObject = function (args) {
   this.game = args["game"];
   this.pos = args["pos"];
@@ -48,4 +46,4 @@ MovingObject.prototype.isCollidedWith = function (otherObject) {
   return false;
 };
 
-module.exports = MovingObject;
+export default MovingObject;

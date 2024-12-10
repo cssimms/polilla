@@ -1,4 +1,4 @@
-var hotkeys = require("hotkeys-js/dist/hotkeys.common");
+import hotkeys from "hotkeys-js";
 
 var GameView = function (game, ctx) {
   this.game = game;
@@ -60,4 +60,4 @@ GameView.prototype.clearCanvas = function () {
   this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
   this.ctx.beginPath();
 };
-module.exports = GameView;
+export default GameView;

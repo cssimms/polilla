@@ -1,5 +1,5 @@
-var Asteroid = require("./asteroid.js");
-var Ship = require("./ship.js");
+import Asteroid from "./asteroid.js";
+import Ship from "./ship.js";
 
 var Game = function () {
   this.addAsteroids(Game.NUM_ASTEROIDS);
@@ -85,4 +85,4 @@ Game.prototype.moveObjects = function () {
   });
 };
 
-module.exports = Game;
+export default Game;

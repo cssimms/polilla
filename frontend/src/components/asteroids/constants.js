@@ -7,4 +7,4 @@ var CONSTANTS = {
   DEFAULT_SHIP_POS: [400, 400],
   DEFAULT_SHIP_DIRECTION: 270,
 };
-module.exports = CONSTANTS;
+export default CONSTANTS;

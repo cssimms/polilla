@@ -1,6 +1,6 @@
-var Util = require("./util.js");
-var CONSTANTS = require("./constants.js");
-var MovingObject = require("./movingObject.js");
+import Util from "./util.js";
+import CONSTANTS from "./constants.js";
+import MovingObject from "./movingObject.js";
 
 var Ship = function (game) {
   this.RADIUS = CONSTANTS.DEFAULT_SHIP_RADIUS;
@@ -21,21 +21,24 @@ Util.inherits(Ship, MovingObject);
 // Fun little pattern found on StackOverflow, we're using an IIFE to wrap
 // a closure around the parent method, and redefining the method on the
 // Ship class. aka Monkey Patching without ES6 proxies
-Ship.prototype.draw = (function (parentFunction) {
-  return function (ctx) {
-    console.log("drawing the ship");
-    ctx.beginPath();
-    ctx.moveTo(this.pos[0], this.pos[1]);
 
-    // TODO - 50 is just a factor here that we'll want to mess w later
-    var xYDeltas = Util.deltaXYFromDirection(this.direction, 50);
-    ctx.lineTo(this.pos[0] + xYDeltas[0], this.pos[1] + xYDeltas[1]);
-    ctx.strokeStyle = "#FFAD00";
-    ctx.stroke();
+// Ship.prototype.draw = (function (parentFunction) {
+//   // TODO - this function is running indefinitely every frame update, even after the game is closed ... need to debug that
+//   // issue before commenting back in!
+//   return function (ctx) {
+//     console.log("drawing the ship");
+//     ctx.beginPath();
+//     ctx.moveTo(this.pos[0], this.pos[1]);
 
-    return parentFunction.apply(this, arguments);
-  };
-})(MovingObject.prototype.draw);
+//     // TODO - 50 is just a factor here that we'll want to mess w later
+//     var xYDeltas = Util.deltaXYFromDirection(this.direction, 50);
+//     ctx.lineTo(this.pos[0] + xYDeltas[0], this.pos[1] + xYDeltas[1]);
+//     ctx.strokeStyle = "#FFAD00";
+//     ctx.stroke();
+
+//     return parentFunction.apply(this, arguments);
+//   };
+// })(MovingObject.prototype.draw);
 
 Ship.prototype.relocate = function () {
   console.log(this);
@@ -62,4 +65,4 @@ Ship.prototype.turn = function (degrees) {
   this.direction += degrees;
 };
 
-module.exports = Ship;
+export default Ship;

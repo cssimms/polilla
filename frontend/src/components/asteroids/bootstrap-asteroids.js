@@ -1,6 +1,6 @@
-var CONSTANTS = require("./constants.js");
-var Game = require("./game.js");
-var GameView = require("./gameView.js");
+import CONSTANTS from "./constants.js";
+import Game from "./game.js";
+import GameView from "./gameView.js";
 
 console.log("~~ Initializing Asteroids ~~");
 var gameContainer = document.getElementById("asteroids-runner");

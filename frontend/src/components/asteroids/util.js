@@ -37,4 +37,4 @@ Util.degreeToRadian = function (degrees) {
   return (degrees * Math.PI) / 180;
 };
 
-module.exports = Util;
+export default Util;

@@ -30,7 +30,7 @@ GAME_MAP.set(GameNames.Asteroids, {
   Component: Asteroids,
   title: "Asteroids",
   description:
-    "Implementation of Asteroids built using jQuery and Canvas, this is a version of one of my first projects in Javascript. I was quite charmed by the simple physics implemented with simple math - I hope you are too!",
+    "Implementation of Asteroids built using jQuery and Canvas, this is a version of one of my first projects in Javascript. I was quite charmed by the simple physics implemented with simple math - I hope you are too! \n\n For my own amusement I've left most of the old JS syntax, making as few changes as possible to get the game working.",
 });
 
 function App() {

@@ -10,16 +10,17 @@ export default function Asteroids() {
     asteroidsScript.src =
       "./frontend/src/components/asteroids/bootstrap-asteroids.js";
     asteroidsScript.async = true;
+    asteroidsScript.type = "module";
     document.body.appendChild(asteroidsScript);
 
     return () => {
       document.body.removeChild(asteroidsScript); // Cleanup on unmount
     };
   }, []);
+
   return (
     <div>
       <div id="asteroids-runner"></div>
-      <script src="./bootstrap-asteroids.js"></script>
     </div>
   );
 }
