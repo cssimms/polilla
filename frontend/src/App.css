@@ -7,7 +7,9 @@
 
 body {
   min-height: 100vh;
-  align-items: stretch;
+  align-items: stretchbody;
+  background-image: url("./assets/mothy-background.png");
+  background-color: #202020;
 }
 
 .app-container {
